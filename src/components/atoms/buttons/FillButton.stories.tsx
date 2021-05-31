@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import ContainedButton, { ContainedButtonProps, Variant, FontSize } from './ContainedButton';
+import FillButton, { FillButtonPropsType, Variant, FontSize } from './FillButton';
 
 export default {
-  title: 'Atom/Button/ContainedButton',
-  component: ContainedButton,
+  title: 'Atom/Button/FillButton',
+  component: FillButton,
 } as Meta;
 
-const Template: Story<ContainedButtonProps> = (args) => <ContainedButton {...args} />;
+const Template: Story<FillButtonPropsType> = (args) => <FillButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

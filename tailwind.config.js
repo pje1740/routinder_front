@@ -31,7 +31,10 @@ module.exports = {
 
       black: colors.black,
       white: colors.white,
-      gray: colors.coolGray,
+      gray: {
+        dark: '#BDBDBD',
+        light: '#E0E0E0',
+      },
       red: colors.red,
       yellow: colors.amber,
       green: colors.emerald,
@@ -856,6 +859,7 @@ module.exports = {
       'hover',
       'focus',
       'active',
+      'disabled',
     ],
     backgroundImage: ['responsive'],
     backgroundOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
