@@ -38,7 +38,7 @@ const FONT_SIZE_MAPS = {
 };
 
 export interface NormalTextPropsType
-  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   label: string;
   fontSize?: FontSize;
   textColor?: TextColor;
