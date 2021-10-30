@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: [],
@@ -15,10 +15,26 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      primary: {
+        DEFAULT: '#8447ff',
+        dark: '#6336bf',
+        darkest: '#422480',
+      },
+      secondary: {
+        DEFAULT: '#ea54ff',
+        dark: '#b03fbf',
+        darkest: '#762a80',
+      },
+      error: {
+        DEFAULT: '#ff331f',
+      },
 
       black: colors.black,
       white: colors.white,
-      gray: colors.coolGray,
+      gray: {
+        dark: '#BDBDBD',
+        light: '#E0E0E0',
+      },
       red: colors.red,
       yellow: colors.amber,
       green: colors.emerald,
@@ -150,7 +166,7 @@ module.exports = {
     },
     borderWidth: {
       DEFAULT: '1px',
-      0: '0px',
+      0: '0',
       2: '2px',
       4: '4px',
       8: '8px',
@@ -835,7 +851,16 @@ module.exports = {
     backgroundAttachment: ['responsive'],
     backgroundBlendMode: ['responsive'],
     backgroundClip: ['responsive'],
-    backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    backgroundColor: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+      'active',
+      'disabled',
+    ],
     backgroundImage: ['responsive'],
     backgroundOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
     backgroundPosition: ['responsive'],
@@ -847,10 +872,10 @@ module.exports = {
     borderOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
     borderRadius: ['responsive'],
     borderStyle: ['responsive'],
-    borderWidth: ['responsive'],
+    borderWidth: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
     boxDecorationBreak: ['responsive'],
     boxShadow: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    boxSizing: ['responsive'],
+    boxSizing: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
     brightness: ['responsive'],
     clear: ['responsive'],
     container: ['responsive'],
@@ -960,4 +985,4 @@ module.exports = {
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
   plugins: [],
-}
+};
