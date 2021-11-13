@@ -26,7 +26,7 @@
     "dev": "yarn build:style && next dev",
     "start": "next start",
     "build": "yarn build:style && next build",
-    "storybook": "start-storybook -p 6006 -s public",
+    "storybook": "yarn build:style && start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "build:style": "tailwind build -i src/styles/index.css -o src/styles/tailwind.css"
   },
