@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-    button {
-        @apply p-2
-    }
+  *,
+  *:before,
+  *:after,
+  button {
+    box-sizing: border-box;
+  }
 }
