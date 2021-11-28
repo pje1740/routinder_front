@@ -7,6 +7,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/preset-create-react-app',
   ],
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     if (!config.resolve) {
       config.resolve = {};

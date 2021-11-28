@@ -1,4 +1,7 @@
 import '../src/styles/tailwind.css';
+import * as NextImage from 'next/image';
+
+const OriginalNextImage = NextImage.default;
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,3 +12,8 @@ export const parameters = {
     },
   },
 };
+
+Object.defineProperty(NextImage, 'default', {
+  configurable: true,
+  value: (props) => <OriginalNextImage {...props} unoptimized />,
+});
