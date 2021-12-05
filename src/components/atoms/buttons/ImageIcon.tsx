@@ -1,8 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import classNames from 'classnames';
 
-export interface ImageButtonPropsType
+export interface ImageIconPropsType
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   size: 'sm' | 'md' | 'lg';
   imageLink: string;
@@ -10,12 +9,12 @@ export interface ImageButtonPropsType
   onClick: () => void;
 }
 
-const ImageButton: React.FC<ImageButtonPropsType> = ({
+const ImageIcon: React.FC<ImageIconPropsType> = ({
   onClick,
   size,
   imageLink,
   isTransparent = false,
-}: ImageButtonPropsType) => {
+}: ImageIconPropsType) => {
   const handleClick = () => {
     onClick();
   };
@@ -45,4 +44,4 @@ const ImageButton: React.FC<ImageButtonPropsType> = ({
   );
 };
 
-export default ImageButton;
+export default ImageIcon;

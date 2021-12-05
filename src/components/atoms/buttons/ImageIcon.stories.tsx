@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import ImageButton, { ImageButtonPropsType } from './ImageButton';
+import ImageIcon, { ImageIconPropsType } from './ImageIcon';
 
 export default {
-  title: 'Atom/Button/ImageButton',
-  component: ImageButton,
+  title: 'Atom/Button/ImageIcon',
+  component: ImageIcon,
 } as Meta;
 
-const Template: Story<ImageButtonPropsType> = (args) => <ImageButton {...args} />;
+const Template: Story<ImageIconPropsType> = (args) => <ImageIcon {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
