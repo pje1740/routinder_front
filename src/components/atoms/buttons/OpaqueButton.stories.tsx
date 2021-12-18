@@ -1,7 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import OpaqueButton, { OpaqueButtonPropsType, FontSize } from './OpaqueButton';
+import OpaqueButton, { OpaqueButtonPropsType } from './OpaqueButton';
+
+import { FontSize } from '@/styles/styleConstants';
 
 export default {
   title: 'Atom/Button/OpaqueButton',

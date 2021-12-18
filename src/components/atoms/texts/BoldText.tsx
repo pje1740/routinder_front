@@ -1,7 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export enum TextColor{
+import { FontSize, FONT_SIZE_MAPS } from '@/styles/styleConstants';
+
+export enum TextColor {
   BLACK = 'black',
   WHITE = 'white',
   RED = 'red',
@@ -17,24 +19,6 @@ const TEXT_COLOR_MAPS = {
   [TextColor.LIGHTGRAY]: 'text-gray-light',
   [TextColor.DARKGRAY]: 'text-gray-dark',
   [TextColor.PRIMARY]: 'text-primary',
-};
-
-export enum FontSize {
-  XS = 'xs',
-  SM = 'sm',
-  BASE = 'base',
-  LG = 'lg',
-  XL = 'xl',
-  '2XL' = '2xl',
-}
-
-const FONT_SIZE_MAPS = {
-  [FontSize.XS]: 'text-xs',
-  [FontSize.SM]: 'text-sm',
-  [FontSize.BASE]: 'text-base',
-  [FontSize.LG]: 'text-lg',
-  [FontSize.XL]: 'text-xl',
-  [FontSize['2XL']]: 'text-2xl',
 };
 
 export interface BoldTextPropsType
@@ -58,11 +42,7 @@ const BoldText: React.FC<BoldTextPropsType> = ({
     TEXT_COLOR_MAPS[textColor],
   );
 
-  return (
-    <div className={classes}>
-      {label}
-    </div>
-  );
+  return <div className={classes}>{label}</div>;
 };
 
 export default BoldText;

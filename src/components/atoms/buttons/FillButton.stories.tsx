@@ -1,7 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import FillButton, { FillButtonPropsType, Variant, FontSize } from './FillButton';
+import FillButton, { FillButtonPropsType, Variant } from './FillButton';
+
+import { FontSize } from '@/styles/styleConstants';
 
 export default {
   title: 'Atom/Button/FillButton',

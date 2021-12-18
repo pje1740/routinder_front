@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import { FontSize, FONT_SIZE_MAPS } from '@/styles/styleConstants';
+
 export enum Variant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
@@ -12,25 +14,6 @@ const VARIANT_MAPS = {
   [Variant.SECONDARY]:
     'bg-secondary hover:bg-secondary-dark active:bg-secondary-darkest disabled:bg-gray-dark',
 };
-
-export enum FontSize {
-  XS = 'xs',
-  SM = 'sm',
-  BASE = 'base',
-  LG = 'lg',
-  XL = 'xl',
-  '2XL' = '2xl',
-}
-
-const FONT_SIZE_MAPS = {
-  [FontSize.XS]: 'text-xs',
-  [FontSize.SM]: 'text-sm',
-  [FontSize.BASE]: 'text-base',
-  [FontSize.LG]: 'text-lg',
-  [FontSize.XL]: 'text-xl',
-  [FontSize['2XL']]: 'text-2xl',
-};
-
 export interface FillButtonPropsType
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   label: string;
@@ -53,6 +36,7 @@ const FillButton: React.FC<FillButtonPropsType> = ({
     'text-white',
     'rounded-full',
     'px-5',
+    'py-1',
     'focus:outline-none',
     disabled ? '' : 'shadow-md',
     VARIANT_MAPS[variant],

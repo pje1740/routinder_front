@@ -1,7 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import BoldText, { BoldTextPropsType, TextColor, FontSize } from './BoldText';
+import BoldText, { BoldTextPropsType, TextColor } from './BoldText';
+
+import { FontSize } from '@/styles/styleConstants';
 
 export default {
   title: 'Atom/Button/BoldText',

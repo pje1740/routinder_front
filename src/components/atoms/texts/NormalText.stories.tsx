@@ -1,7 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import NormalText, { NormalTextPropsType, TextColor, FontSize } from './NormalText';
+import NormalText, { NormalTextPropsType, TextColor } from './NormalText';
+
+import { FontSize } from '@/styles/styleConstants';
 
 export default {
   title: 'Atom/Button/NormalText',
