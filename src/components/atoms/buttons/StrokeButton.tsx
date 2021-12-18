@@ -39,7 +39,8 @@ const StrokeButton: React.FC<StrokeButtonPropsType> = ({
     'py-1',
     'focus:outline-none',
     'shadow-md',
-    VARIANT_MAPS[variant],
+    disabled ? 'cursor-auto' : '',
+    disabled ? '' : VARIANT_MAPS[variant],
     FONT_SIZE_MAPS[fontSize],
   );
 
