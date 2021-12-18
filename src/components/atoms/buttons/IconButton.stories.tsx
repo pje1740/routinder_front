@@ -14,30 +14,22 @@ export const Calendar = Template.bind({});
 Calendar.args = {
   menuType: 'calendar',
   isSelected: true,
-  width: 30,
-  height: 30,
 };
 
 export const Profile = Template.bind({});
 Profile.args = {
   menuType: 'profile',
   isSelected: true,
-  width: 30,
-  height: 30,
 };
 
 export const Setting = Template.bind({});
 Setting.args = {
   menuType: 'setting',
   isSelected: true,
-  width: 30,
-  height: 30,
 };
 
 export const Statistics = Template.bind({});
 Statistics.args = {
   menuType: 'statistics',
   isSelected: true,
-  width: 30,
-  height: 30,
 };
