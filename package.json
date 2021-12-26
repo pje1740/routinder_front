@@ -29,7 +29,8 @@
     "build": "yarn build:style && next build",
     "storybook": "yarn build:style && start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "build:style": "tailwind build -i src/styles/index.css -o src/styles/tailwind.css"
+    "build:style": "tailwind build -i src/styles/index.css -o src/styles/tailwind.css",
+    "chromatic": "npx chromatic --project-token=0e43cf3b3805"
   },
   "eslintConfig": {
     "extends": [
@@ -77,6 +78,7 @@
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "autoprefixer": "^10.4.0",
+    "chromatic": "^6.3.3",
     "eslint": "^7.24.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",

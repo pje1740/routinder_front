@@ -11,6 +11,7 @@
 # production
 /build
 /.next
+*storybook.log
 
 # misc
 .DS_Store
