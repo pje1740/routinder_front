@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import ToggleChip, { SelectionChipPropsType } from './ToggleChip';
 
 export default {
-  title: 'Atom/Button/ToggleChip',
+  title: 'Atom/Chip/ToggleChip',
   component: ToggleChip,
 } as Meta;
 
