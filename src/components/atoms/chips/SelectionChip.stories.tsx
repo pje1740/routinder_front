@@ -15,6 +15,12 @@ Default.args = {
   label: '월',
 };
 
+export const Selected = Template.bind({});
+Selected.args = {
+  label: '월',
+  selected: true,
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   label: '월',
