@@ -8,7 +8,7 @@ export enum Variant {
 }
 
 const VARIANT_MAPS = {
-  [Variant.PRIMARY]: 'text-primary bg-white border-primary hover:bg-primary-dark hover:text-white',
+  [Variant.PRIMARY]: 'text-primary bg-white border-primary hover:bg-primary hover:text-white',
 };
 
 export interface SelectionChipPropsType
