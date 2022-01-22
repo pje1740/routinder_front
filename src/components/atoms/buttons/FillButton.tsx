@@ -25,11 +25,11 @@ export interface FillButtonPropsType
 
 const FillButton: React.FC<FillButtonPropsType> = ({
   className,
-  label,
   variant = Variant.PRIMARY,
   fontSize = FontSize.SM,
   onClick,
   disabled = false,
+  children,
 }: FillButtonPropsType) => {
   const classes = classNames(
     className,
@@ -49,7 +49,7 @@ const FillButton: React.FC<FillButtonPropsType> = ({
 
   return (
     <button type="button" className={classes} onClick={handleClick} disabled={disabled}>
-      {label}
+      {children}
     </button>
   );
 };
