@@ -32,6 +32,7 @@ const OpaqueButton: React.FC<OpaqueButtonPropsType> = ({
     className,
     'text-primary',
     'rounded-md',
+    'py-2',
     'px-5',
     'focus:outline-none',
     VARIANT_MAPS[variant],
