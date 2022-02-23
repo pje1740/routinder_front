@@ -38,11 +38,11 @@ const ToggleChip: React.FC<SelectionChipPropsType> = ({
     'focus:outline-none',
     'active:bg-gray-light',
     'active:border-none',
-    'border',
+    'border-2',
     'border-solid',
     'shadow-md',
     disabled
-      ? 'text-gray-light border-none hover:bg-white hover:text-white pointer-events-none'
+      ? 'text-gray-dark border-none hover:bg-white hover:text-white pointer-events-none'
       : '',
   );
 

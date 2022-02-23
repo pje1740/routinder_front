@@ -20,7 +20,7 @@ Default.args = {
 export const DisabledText = Template.bind({});
 DisabledText.args = {
   label: '비활성화된 텍스트',
-  textColor: TextColor.LIGHTGRAY,
+  textColor: TextColor.DARKGRAY,
 };
 
 export const ErrorText = Template.bind({});

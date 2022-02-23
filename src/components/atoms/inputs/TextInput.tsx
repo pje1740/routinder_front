@@ -42,13 +42,13 @@ const TextInput: React.FC<TextInputPropsType> = ({
   const inputClasses = classNames(
     className,
     'px-3',
-    'py-1',
+    'pt-2',
+    'pb-1',
     width ? '' : 'w-full',
-    'text-base',
     'rounded-full',
     'border-2',
     'border-solid',
-    error ? 'border-red-600' : 'focus:border-primary border-gray-light',
+    error ? 'border-error' : 'focus:border-primary border-gray-dark',
     'outline-none',
     FONT_SIZE_MAPS[fontSize],
   );
@@ -57,8 +57,8 @@ const TextInput: React.FC<TextInputPropsType> = ({
     'self-end',
     'text-sm',
     'pr-3',
-    error ? 'text-red-600' : 'text-primary',
-    isInputFocused ? 'text-primary' : 'text-gray-light',
+    error ? 'text-error' : 'text-primary',
+    isInputFocused ? 'text-primary' : 'text-gray-dark',
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,7 +79,7 @@ const TextInput: React.FC<TextInputPropsType> = ({
         }}
       />
       <div className={classNames('flex', 'w-full', 'justify-between')}>
-        <p className={classNames('self-start', 'pl-3', 'text-sm', 'text-red-600')}>
+        <p className={classNames('self-start', 'pl-3', 'text-sm', 'text-error')}>
           {`${error ? '*최대 18자 (띄어쓰기 포함) 입력 가능합니다.' : ''}`}
         </p>
         <p className={pClasses}>{`${text.length} / ${maxLength}자`}</p>

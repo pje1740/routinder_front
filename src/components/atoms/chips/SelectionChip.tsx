@@ -41,7 +41,7 @@ const SelectionChip: React.FC<SelectionChipPropsType> = ({
     'active:bg-gray-light',
     'active:border-none',
     'hover:border-primary',
-    'border',
+    'border-2',
     'border-solid',
     'shadow-md',
     selected ? 'border-primary text-primary' : 'text-black border-transparent',
