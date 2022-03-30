@@ -5,16 +5,13 @@ import { FontSize, FONT_SIZE_MAPS } from '@/styles/styleConstants';
 
 export enum Variant {
   PRIMARY = 'primary',
-  SECONDARY = 'secondary',
 }
 
 const VARIANT_MAPS = {
-  [Variant.PRIMARY]:
-    'bg-primary hover:bg-primary-dark active:bg-primary-darkest disabled:bg-gray-dark',
-  [Variant.SECONDARY]:
-    'bg-secondary hover:bg-secondary-dark active:bg-secondary-darkest disabled:bg-gray-dark',
+  [Variant.PRIMARY]: 'text-primary bg-white border-primary hover:bg-primary hover:text-white',
 };
-export interface FillButtonPropsType
+
+export interface SelectionChipPropsType
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   label: string;
   variant?: Variant;
@@ -23,24 +20,30 @@ export interface FillButtonPropsType
   disabled?: boolean;
 }
 
-const FillButton: React.FC<FillButtonPropsType> = ({
+const ToggleChip: React.FC<SelectionChipPropsType> = ({
   className,
+  label,
   variant = Variant.PRIMARY,
   fontSize = FontSize.SM,
   onClick,
   disabled = false,
-  children,
-}: FillButtonPropsType) => {
+}: SelectionChipPropsType) => {
   const classes = classNames(
     className,
-    'text-white',
-    'rounded-full',
-    'px-5',
-    'py-1',
-    'focus:outline-none',
-    disabled ? '' : 'shadow-md',
     VARIANT_MAPS[variant],
     FONT_SIZE_MAPS[fontSize],
+    'rounded-full',
+    'px-4',
+    'py-1',
+    'focus:outline-none',
+    'active:bg-gray-light',
+    'active:border-none',
+    'border-2',
+    'border-solid',
+    'shadow-md',
+    disabled
+      ? 'text-gray-dark border-none hover:bg-white hover:text-white pointer-events-none'
+      : '',
   );
 
   const handleClick = () => {
@@ -49,9 +52,9 @@ const FillButton: React.FC<FillButtonPropsType> = ({
 
   return (
     <button type="button" className={classes} onClick={handleClick} disabled={disabled}>
-      {children}
+      {label}
     </button>
   );
 };
 
-export default FillButton;
+export default ToggleChip;

@@ -5,16 +5,13 @@ import { FontSize, FONT_SIZE_MAPS } from '@/styles/styleConstants';
 
 export enum Variant {
   PRIMARY = 'primary',
-  SECONDARY = 'secondary',
 }
 
 const VARIANT_MAPS = {
-  [Variant.PRIMARY]:
-    'bg-primary hover:bg-primary-dark active:bg-primary-darkest disabled:bg-gray-dark',
-  [Variant.SECONDARY]:
-    'bg-secondary hover:bg-secondary-dark active:bg-secondary-darkest disabled:bg-gray-dark',
+  [Variant.PRIMARY]: 'bg-primary bg-opacity-10 hover:bg-opacity-30',
 };
-export interface FillButtonPropsType
+
+export interface OpaqueButtonPropsType
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   label: string;
   variant?: Variant;
@@ -23,22 +20,21 @@ export interface FillButtonPropsType
   disabled?: boolean;
 }
 
-const FillButton: React.FC<FillButtonPropsType> = ({
+const OpaqueButton: React.FC<OpaqueButtonPropsType> = ({
   className,
+  label,
   variant = Variant.PRIMARY,
   fontSize = FontSize.SM,
   onClick,
   disabled = false,
-  children,
-}: FillButtonPropsType) => {
+}: OpaqueButtonPropsType) => {
   const classes = classNames(
     className,
-    'text-white',
-    'rounded-full',
+    'text-primary',
+    'rounded-md',
+    'py-2',
     'px-5',
-    'py-1',
     'focus:outline-none',
-    disabled ? '' : 'shadow-md',
     VARIANT_MAPS[variant],
     FONT_SIZE_MAPS[fontSize],
   );
@@ -49,9 +45,9 @@ const FillButton: React.FC<FillButtonPropsType> = ({
 
   return (
     <button type="button" className={classes} onClick={handleClick} disabled={disabled}>
-      {children}
+      {label}
     </button>
   );
 };
 
-export default FillButton;
+export default OpaqueButton;

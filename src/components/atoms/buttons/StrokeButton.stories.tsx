@@ -1,7 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import StrokeButton, { StrokeButtonPropsType, FontSize } from './StrokeButton';
+import StrokeButton, { StrokeButtonPropsType } from './StrokeButton';
+
+import { FontSize } from '@/styles/styleConstants';
 
 export default {
   title: 'Atom/Button/StrokeButton',
