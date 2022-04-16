@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { addYears } from 'date-fns';
 
 import DatePicker, { DatePickerPropsType } from './DatePicker';
 
@@ -12,5 +13,7 @@ const Template: Story<DatePickerPropsType> = (args) => <DatePicker {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  startDate: new Date(),
+  defaultDate: new Date(),
+  minDate: new Date(),
+  maxDate: addYears(new Date(), 1),
 };
