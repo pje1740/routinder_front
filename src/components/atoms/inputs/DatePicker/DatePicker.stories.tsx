@@ -9,7 +9,11 @@ export default {
   component: DatePicker,
 } as Meta;
 
-const Template: Story<DatePickerPropsType> = (args) => <DatePicker {...args} />;
+const Template: Story<DatePickerPropsType> = (args) => (
+  <div className="w-full h-full">
+    <DatePicker {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
