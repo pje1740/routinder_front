@@ -62,4 +62,13 @@ $base-color: #8447ff;
     background-color: white;
     border: none;
   }
+
+  .react-datepicker__day.react-datepicker__day--keyboard-selected {
+    background: none;
+    color: black;
+  }
+
+  .react-datepicker__day--outside-month {
+    color: #bdbdbd;
+  }
 }

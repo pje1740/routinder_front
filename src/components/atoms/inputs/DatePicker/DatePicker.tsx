@@ -78,6 +78,7 @@ const DatePicker = ({
         selected={selectedDate}
         onChange={handleStartDateChange}
         showPopperArrow={false}
+        shouldCloseOnSelect={false}
         customInput={<CustomInput />}
         renderCustomHeader={({
           date,
@@ -116,7 +117,7 @@ const DatePicker = ({
               </div>
               <InformationCircleIcon
                 onClick={() => setIsModalOpen(true)}
-                className="absolute w-5 cursor-pointer right-7 text-primary"
+                className="absolute w-5 cursor-pointer right-7 text-primary hover:text-primary-dark"
               />
             </div>
           );
