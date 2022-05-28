@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({
     if (enableClickAway) onClickButton?.();
   });
 
-  const wrapperClasses = classNames(['absolute', 'z-50']);
+  const wrapperClasses = classNames(['fixed', 'z-50', 'top-0', 'left-0']);
   const backgroundClasses = classNames([
     'w-screen',
     'h-screen',

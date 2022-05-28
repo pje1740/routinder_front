@@ -36,6 +36,7 @@ const GUIDES = [
   '투데이 이전 날짜는 루틴 등록할 수 없습니다.',
   '투데이 기준 90일 이후에는 루틴을 등록할 수 없습니다. ',
 ];
+
 export interface DatePickerPropsType {
   defaultDate?: Date;
   onChangeSelectedDate?: (date: Date) => void;
