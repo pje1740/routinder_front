@@ -16,6 +16,18 @@ export const FONT_SIZE_MAPS = {
   [FontSize['2XL']]: 'text-2xl',
 };
 
+export enum FontWeight {
+  LIGHT = 'font-light',
+  NORMAL = 'font-medium',
+  BOLD = 'font-bold',
+}
+
+export const FONT_WEIGHT_MAPS = {
+  [FontWeight.LIGHT]: 'font-light',
+  [FontWeight.NORMAL]: 'font-medium',
+  [FontWeight.BOLD]: 'font-bold',
+};
+
 export enum TextColor {
   BLACK = 'black',
   WHITE = 'white',

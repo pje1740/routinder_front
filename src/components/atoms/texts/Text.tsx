@@ -1,7 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { FontSize, FONT_SIZE_MAPS, TextColor, TEXT_COLOR_MAPS } from '@/styles/styleConstants';
+import {
+  FontSize,
+  FontWeight,
+  FONT_SIZE_MAPS,
+  FONT_WEIGHT_MAPS,
+  TextColor,
+  TEXT_COLOR_MAPS,
+} from '@/styles/styleConstants';
 
 // 클래스처럼 필요한 형태의 텍스트 스타일을 정의
 export enum TextType {
@@ -18,6 +25,7 @@ export interface TextPropsType
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   label: string;
   fontSize?: FontSize;
+  fontWeight?: FontWeight;
   textColor?: TextColor;
   textType?: TextType;
 }
@@ -26,14 +34,18 @@ const NormalText: React.FC<TextPropsType> = ({
   className,
   label,
   fontSize = FontSize.SM,
+  fontWeight = FontWeight.NORMAL,
   textColor = TextColor.BLACK,
-  textType = TextType.BODY,
+  textType,
 }: TextPropsType) => {
   const classes = classNames(
     className,
     'font-sans',
-    TEXT_TYPE_MAPS[textType],
+    'text-center',
+    'align-middle',
+    textType ? TEXT_TYPE_MAPS[textType] : '',
     FONT_SIZE_MAPS[fontSize],
+    FONT_WEIGHT_MAPS[fontWeight],
     TEXT_COLOR_MAPS[textColor],
   );
 
