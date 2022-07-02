@@ -3,13 +3,14 @@ import qs from 'qs';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
-const LoginCallback = () => {
+const gglLoginCallback = () => {
   const router = useRouter();
   useEffect(() => {
     const sendOauthCode = async () => {
       const { code } = qs.parse(window.location.search, { ignoreQueryPrefix: true });
-
-      const { data } = await axios.post(process.env.SERVER_URL as string, { data: { code } });
+      const { data } = await axios.post(process.env.NEXT_PUBLIC_GGL_SERVER_URL as string, {
+        data: { code },
+      });
       const { token } = data;
 
       if (!token) {
@@ -30,4 +31,4 @@ const LoginCallback = () => {
   );
 };
 
-export default LoginCallback;
+export default gglLoginCallback;

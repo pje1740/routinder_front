@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react';
 
-const clientId = '14b259cdaa75f393cf34';
-const scopes = 'read:user';
+const ghClientId = '14b259cdaa75f393cf34';
+const ghScopes = 'read:user';
+const gglClientId = '294482240156-ngbk244rak8hme2a9plnspp5k22dnf00.apps.googleusercontent.com';
+const gglScope = 'https://www.googleapis.com/auth/userinfo.email';
 
 const LoginPage = () => {
-  const [redirectURI, setRedirectURI] = useState<string>('');
+  const [ghRedirectURI, setGhRedirectURI] = useState<string>('');
+  const [gglRedirectURI, setGglRedirectURI] = useState<string>('');
 
   useEffect(() => {
-    setRedirectURI(`${window.location.origin}/login-callback`);
+    setGhRedirectURI(`${window.location.origin}/gh-login-callback`);
+    setGglRedirectURI(`${window.location.origin}/ggl-login-callback`);
   }, []);
 
   return (
     <div>
       <h1>로그인</h1>
       <a
-        href={`https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectURI}&scope=${scopes}`}
+        href={`https://github.com/login/oauth/authorize?client_id=${ghClientId}&redirect_uri=${ghRedirectURI}&scope=${ghScopes}`}
       >
         Github으로 로그인하기
+      </a>
+      <br />
+      <a
+        href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${gglClientId}&redirect_uri=${gglRedirectURI}&response_type=code&scope=${gglScope}&access_type=offline`}
+      >
+        Google로 로그인하기
       </a>
     </div>
   );
