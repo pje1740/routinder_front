@@ -36,6 +36,9 @@ module.exports = {
         purple: colors.violet,
         pink: colors.pink,
       },
+      fontSize: {
+        '2xs': ['0.6em'],
+      },
     },
   },
   plugins: [],

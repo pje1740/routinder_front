@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import classNames from 'classnames';
+
+import { CALENDAR_ICON_SIZE } from '@/styles/styleConstants';
 
 export interface ImageIconPropsType
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
@@ -19,23 +22,13 @@ const ImageIcon: React.FC<ImageIconPropsType> = ({
     onClick();
   };
 
-  const buttonWidth = {
-    sm: 18,
-    md: 30,
-    lg: 36,
-  };
-
-  const buttonHeight = {
-    sm: 18,
-    md: 30,
-    lg: 36,
-  };
+  const buttonClasses = classNames(['inline-block', 'h-fit']);
 
   return (
-    <button type="button" onClick={handleClick}>
+    <button type="button" onClick={handleClick} className={buttonClasses}>
       <Image
-        width={buttonWidth[size]}
-        height={buttonHeight[size]}
+        width={CALENDAR_ICON_SIZE[size]}
+        height={CALENDAR_ICON_SIZE[size]}
         className={isTransparent ? 'opacity-20' : ''}
         src={imageLink}
         alt="sticker stamp"
