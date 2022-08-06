@@ -1,4 +1,18 @@
+import { NumberDate } from '@/@types/calendar';
 /* eslint-disable no-plusplus */
+
+export const converDateToNumber = (date: Date): NumberDate => {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  return {
+    year,
+    month,
+    day,
+  };
+};
+
 /**
  * Represents a book.
  * @param {number} year - The year.
