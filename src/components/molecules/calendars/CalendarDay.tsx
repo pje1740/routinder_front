@@ -1,47 +1,61 @@
 import classNames from 'classnames';
 import React from 'react';
 
+import { CALENDAR_DAY_MIN_SIZE } from '@/styles/styleConstants';
+import { CalendarType } from '@/@types/calendar';
+
 export interface CalendarDayProps {
-  type: 'monthly' | 'weekly';
+  type?: CalendarType;
+  isContentEmpty: boolean;
   day: number;
   isToday: boolean;
   stickers: React.ReactNode[];
 }
 
-const CalendarDay = ({ type = 'monthly', day, isToday, stickers }: CalendarDayProps) => {
+const CalendarDay = ({
+  type = 'monthly',
+  isContentEmpty = false,
+  day,
+  isToday,
+  stickers,
+}: CalendarDayProps) => {
   const wrapperClasses = classNames([
-    'group',
-    'w-full h-full',
-    'border border-solid border-gray-dark',
+    'w-full h-full min-h-[100px]',
+    'bg-white',
     'flex flex-col',
-    'active:bg-gray-dark',
+    isContentEmpty ? '' : 'hover:bg-gray-light active:bg-gray-dark',
   ]);
   const gridClasses = classNames([
-    'grid',
+    'grid gap-x-1',
     'grid-cols-2',
     'grid-rows-3',
-    'w-full h-full group-hover:bg-gray-light ',
+    'w-full h-full',
+    'px-1',
   ]);
   const stickerWrapperClasses = classNames(['grid justify-center content-center']);
   const dayWrapperClasses = classNames([
-    'flex justify-center content-center p-2',
-    'group-hover:bg-gray-light ',
+    'flex justify-center content-center px-2 py-1',
+    'text-2xs',
   ]);
   const daySpanClasses = classNames([
     'flex justify-center align-middle h-full w-full rounded-md',
-    isToday ? 'bg-primary group-hover:bg-gray-light text-white' : '',
+    !isToday && !isContentEmpty ? 'text-black' : 'text-white',
+    isToday && !isContentEmpty ? 'bg-primary' : '',
+    isContentEmpty ? 'text-gray-dark' : '',
   ]);
 
   return (
-    <div className={wrapperClasses}>
+    <div className={wrapperClasses} style={{ minHeight: CALENDAR_DAY_MIN_SIZE[type] }}>
       <div className={dayWrapperClasses}>
         <span className={daySpanClasses}>{day}</span>
       </div>
-      <div className={gridClasses}>
-        {stickers.map((sticker) => (
-          <div className={stickerWrapperClasses}>{sticker}</div>
-        ))}
-      </div>
+      {!isContentEmpty && (
+        <div className={gridClasses}>
+          {stickers.map((sticker) => (
+            <div className={stickerWrapperClasses}>{sticker}</div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
