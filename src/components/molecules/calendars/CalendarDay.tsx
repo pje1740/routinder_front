@@ -51,8 +51,10 @@ const CalendarDay = ({
       </div>
       {!isContentEmpty && (
         <div className={gridClasses}>
-          {stickers.map((sticker) => (
-            <div className={stickerWrapperClasses}>{sticker}</div>
+          {stickers.map((sticker, i) => (
+            <div key={`${day + i}`} className={stickerWrapperClasses}>
+              {sticker}
+            </div>
           ))}
         </div>
       )}

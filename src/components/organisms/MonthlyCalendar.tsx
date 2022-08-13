@@ -3,14 +3,13 @@ import React, { useCallback } from 'react';
 import CalendarDay from '@/components/molecules/calendars/CalendarDay';
 import { getMonthInfo } from '@/utils/date';
 import ImageIcon from '@/components/atoms/buttons/ImageIcon';
-import { Day, StickerStamp } from '@/@types/calendar';
+import { Day } from '@/@types/calendar';
 
 import useDate from '@/hooks/useDate';
 
 const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export interface MonthlyCalendarProps {
-  // 이벤트가 탑제된 스티커들? 일에 해당하는
   year: number;
   month: number;
   days: Day[];
@@ -46,7 +45,7 @@ const MonthlyCalendar = ({ days, year, month }: MonthlyCalendarProps) => {
   const generateDay = (day: number, isContentEmpty: boolean) => {
     const stickerStamps = getDayData(day);
     const stickers = stickerStamps.map((stickerStamp) => (
-      <div>
+      <div key={`${year}${month}${day}`}>
         <ImageIcon
           size="sm"
           imageLink={stickerStamp.routineIconLink}
@@ -57,7 +56,7 @@ const MonthlyCalendar = ({ days, year, month }: MonthlyCalendarProps) => {
     ));
 
     return (
-      <div>
+      <div key={`${year}${month}${day}`}>
         <CalendarDay
           day={day}
           isToday={isToday(day, month, year)}
@@ -72,7 +71,9 @@ const MonthlyCalendar = ({ days, year, month }: MonthlyCalendarProps) => {
     <>
       <div className={dayLabelsWrapperClasses}>
         {DAY_LABELS.map((label) => (
-          <span className={dayLabelClasses}>{label}</span>
+          <span key={label} className={dayLabelClasses}>
+            {label}
+          </span>
         ))}
       </div>
       <div className={calendarWrapperClasses}>
