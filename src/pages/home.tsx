@@ -1,14 +1,16 @@
-import { useState } from 'react';
 import { NextPage } from 'next';
 
-import FillButton from '@/components/atoms/buttons/FillButton';
+import MonthlyCalendar from '@/components/organisms/MonthlyCalendar';
+import useDate from '@/hooks/useDate';
+import { converDateToNumber } from '@/utils/date';
 
 const HomePage: NextPage = () => {
-  const [userName, setUserName] = useState<string>('user');
+  const { today } = useDate();
+  const { year, month } = converDateToNumber(today);
+
   return (
     <>
-      <h1 className="text-red-400">hello, {userName}</h1>
-      <FillButton label="hi" onClick={() => console.log('hi')} />
+      <MonthlyCalendar year={year} month={month} days={[]} />
     </>
   );
 };

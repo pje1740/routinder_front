@@ -45,3 +45,15 @@ export const TEXT_COLOR_MAPS = {
   [TextColor.DARKGRAY]: 'text-gray-dark',
   [TextColor.PRIMARY]: 'text-primary',
 };
+
+export const CALENDAR_ICON_SIZE = {
+  sm: 18,
+  md: 30,
+  lg: 36,
+};
+
+export const CALENDAR_DAY_MIN_SIZE = {
+  monthly: 100,
+  // TODO: weekly 사이즈 지정
+  weekly: 100,
+};

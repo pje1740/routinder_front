@@ -30,9 +30,9 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
-    "storybook": "start-storybook -p 6006 -s public",
+    "storybook": "concurrently \"yarn start:css\" \"start-storybook -p 6006 -s public\"",
     "build-storybook": "build-storybook -s public",
-    "build:style": "npx tailwind -i src/styles/globals.css -o src/styles/tailwind.css",
+    "start:css": "tailwindcss -o src/styles/tailwind.css --watch",
     "chromatic": "npx chromatic --project-token=0e43cf3b3805"
   },
   "eslintConfig": {
