@@ -83,6 +83,7 @@
     "@typescript-eslint/parser": "^4.22.0",
     "autoprefixer": "^10.4.7",
     "chromatic": "^6.3.3",
+    "concurrently": "^7.3.0",
     "eslint": "^7.24.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
