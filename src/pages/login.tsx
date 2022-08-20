@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { GetServerSideProps } from 'next';
+import * as cookie from 'cookie';
 
 const ghClientId = '14b259cdaa75f393cf34';
 const ghScopes = 'read:user';
 const gglClientId = '294482240156-ngbk244rak8hme2a9plnspp5k22dnf00.apps.googleusercontent.com';
 const gglScope = 'https://www.googleapis.com/auth/userinfo.email';
 
-const LoginPage = () => {
+interface LoginPageProps {
+  jwtToken: string;
+}
+
+const LoginPage = ({ jwtToken }: LoginPageProps) => {
   const [ghRedirectURI, setGhRedirectURI] = useState<string>('');
   const [gglRedirectURI, setGglRedirectURI] = useState<string>('');
 
   useEffect(() => {
+    // jwtToken 존재 시 메인 화면으로 리디렉트
+    // 유효기간 지난지 체크 필요
     setGhRedirectURI(`${window.location.origin}/login-callback`);
     setGglRedirectURI(`${window.location.origin}/login-callback`);
   }, []);
@@ -30,6 +38,13 @@ const LoginPage = () => {
       </a>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const cookies = cookie.parse(context.req.headers.cookie as string);
+  return {
+    props: { jwtToken: cookies.jwtToken },
+  };
 };
 
 export default LoginPage;
