@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
-import qs from 'qs';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import qs from 'qs';
 
-const gglLoginCallback = () => {
+const useOauth = () => {
   const router = useRouter();
+
   useEffect(() => {
     const sendOauthCode = async () => {
-      const { code } = qs.parse(window.location.search, { ignoreQueryPrefix: true });
+      const { code, state } = qs.parse(window.location.search, { ignoreQueryPrefix: true });
       const { data } = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/oauth/google` as string,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/oauth/${state}` as string,
         {
           data: { code },
         },
@@ -25,12 +26,6 @@ const gglLoginCallback = () => {
 
     sendOauthCode();
   }, []);
-
-  return (
-    <div>
-      <h1>login callback page</h1>
-    </div>
-  );
 };
 
-export default gglLoginCallback;
+export default useOauth;

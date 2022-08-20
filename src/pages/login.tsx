@@ -10,21 +10,21 @@ const LoginPage = () => {
   const [gglRedirectURI, setGglRedirectURI] = useState<string>('');
 
   useEffect(() => {
-    setGhRedirectURI(`${window.location.origin}/gh-login-callback`);
-    setGglRedirectURI(`${window.location.origin}/ggl-login-callback`);
+    setGhRedirectURI(`${window.location.origin}/login-callback`);
+    setGglRedirectURI(`${window.location.origin}/login-callback`);
   }, []);
 
   return (
     <div>
       <h1>로그인</h1>
       <a
-        href={`https://github.com/login/oauth/authorize?client_id=${ghClientId}&redirect_uri=${ghRedirectURI}&scope=${ghScopes}`}
+        href={`https://github.com/login/oauth/authorize?client_id=${ghClientId}&redirect_uri=${ghRedirectURI}&scope=${ghScopes}&state=github`}
       >
         Github으로 로그인하기
       </a>
       <br />
       <a
-        href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${gglClientId}&redirect_uri=${gglRedirectURI}&response_type=code&scope=${gglScope}&access_type=offline`}
+        href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${gglClientId}&redirect_uri=${gglRedirectURI}&response_type=code&scope=${gglScope}&access_type=offline&state=google`}
       >
         Google로 로그인하기
       </a>
