@@ -29,5 +29,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/prop-types': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
