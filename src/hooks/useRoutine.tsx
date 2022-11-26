@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { convertDateToString } from '@/utils/date';
 import { sendGQLRequest } from '@/api/graphql';
 
@@ -34,20 +33,31 @@ mutation {
 }
 `;
 
-const useRoutine = () => {
-  const [routines, setRoutines] = useState();
+const getRoutinesQuery = () => `
+query {
+  routines {
+    title,
+    startDate,
+    endDate    
+  }
+}`;
 
-  // TODO: 루틴 불러오기
+const useRoutine = () => {
+  const getRoutines = async () => {
+    const { data } = await sendGQLRequest(getRoutinesQuery());
+
+    return data.routines;
+  };
 
   const createRoutine = async (params: createRoutineParams) => {
-    const data = await sendGQLRequest(createRoutineQuery(params));
+    const { data } = await sendGQLRequest(createRoutineQuery(params));
 
     return data;
   };
 
   return {
-    routines,
     createRoutine,
+    getRoutines,
   };
 };
 
