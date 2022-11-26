@@ -50,4 +50,8 @@ export const getMonthInfo = (year: number, month: number) => {
   };
 };
 
-export default { getMonthInfo };
+export const convertDateToString = (date: Date) => {
+  const { year, month, day } = converDateToNumber(date);
+  const timeSection = date.toLocaleTimeString().split(' ')[1];
+  return `${year}-${month}-${day} ${timeSection}`;
+};
